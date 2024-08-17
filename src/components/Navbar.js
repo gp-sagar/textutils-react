@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
-    console.log(props.getPage)
     return (
         <header className={`p-3 text-bg-${props.mode}`}>
             <div className="container">
@@ -14,11 +13,23 @@ export default function Navbar(props) {
                     </Link>
 
                     <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><Link to="/" className={`nav-link px-2 text-${props.getPage === 'Home' ? 'secondary' : 'dark'}`}>Home</Link></li>
-                        <li><Link to="./about" className={`nav-link px-2 text-${props.getPage === 'About' ? 'secondary' : 'dark'}`}>About</Link></li>
-                        {/* <li><Link to="features" className={`nav-link px-2 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Features</Link></li>
-                        <li><Link to="./contact" className={`nav-link px-2 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Contact</Link></li>
-                        <li><Link to="./passbook" className={`nav-link px-2 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Bank</Link></li> */}
+                        <li>
+                            <Link
+                                to="/"
+                                className={`nav-link px-2 text-${props.getPage === 'Home' ? 'secondary' : props.mode === 'dark' ? 'light' : 'dark'}`}
+                            >
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="/about"
+                                className={`nav-link px-2 text-${props.getPage === 'About' ? 'secondary' : props.mode === 'dark' ? 'light' : 'dark'}`}
+                            >
+                                About
+                            </Link>
+                        </li>
+
                     </ul>
 
                     <div className="text-end">
